@@ -2,12 +2,13 @@ package com.company;
 
 public class Person{
 
-    private static long maxId;
+    private static long maxId = 1;
+    private long id;
     private String name;
     private String surname;
 
     public long getId(){
-        return maxId;
+        return id;
     }
 
     public String getName(){
@@ -19,7 +20,7 @@ public class Person{
     }
 
     public Person(String name, String surname){
-        maxId++;
+        id = maxId++;
 
         this.name = name;
         this.surname = surname;

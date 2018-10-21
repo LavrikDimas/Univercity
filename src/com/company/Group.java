@@ -1,21 +1,10 @@
 package com.company;
 
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ExecutionException;
+import java.util.function.Function;
 
 public class Group{
-
-    private Student headmand;
-
-    public Student getHeadmand(){
-        return headmand;
-    }
-
-    public void setHeadmand(Student headmand){
-        this.headmand = headmand;
-    }
 
     private List<Student> students = new ArrayList<Student>();
     private List<Student> presentStudent = new ArrayList<Student>();
@@ -74,23 +63,21 @@ public class Group{
         return students.remove(student);
     }
 
-    public void headmand(){
-        System.out.println("Headmand : " + choiceOfHeadmand());
+    public void headman(){
+        System.out.println("Headman : " + choiceHeadman(student -> student.getMark()));
     }
 
-    public Student choiceOfHeadmand()
-    {
+    public Student choiceHeadman(Function<Student, Float > functionToChooseWith) {
         float maxValue = 0;
         Student bestStudent = null;
 
         for (Student student : students) {
-            if (maxValue < student.getMark()){
-                maxValue = student.getMark();
+            Float evalution = functionToChooseWith.apply(student);
+            if (maxValue < evalution){
+                maxValue = evalution;
                 bestStudent = student;
             }
         }
         return bestStudent;
     }
-
-
 }

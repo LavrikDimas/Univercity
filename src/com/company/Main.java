@@ -10,15 +10,15 @@ public class Main {
         Student student1 = new Student("Dima", "Lavrinenko");
         student1.setMark(7);
         group.addStudent(student1);
-        Student student2 = new Student("Ruslan", "Kudrathenko");
-        student2.setMark(8);
+        Student student2 = new Student("Ruslan", "Kudrachenko");
+        student2.setMark(6);
         group.addStudent(student2);
         Student student3 = new Student("Yura", "Tkathenko");
         student3.setMark(5);
         group.addStudent(student3);
 
         System.out.println(professor);
-        group.headmand();
+        group.headman();
 
         System.out.println();
 
@@ -37,9 +37,6 @@ public class Main {
         System.out.println();
 
         professor.getAllAbsentStudent(group.getAllAbsentStudent());
-
-        System.out.println();
-
 
     }
 }
